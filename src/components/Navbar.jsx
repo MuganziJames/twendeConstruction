@@ -18,9 +18,18 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <nav className={`navbar ${scrolled || !isHome ? "scrolled" : ""}`}>
@@ -32,38 +41,65 @@ function Navbar() {
           </Link>
         </div>
 
+        {/* Desktop nav links */}
+        <ul className="navbar-menu-desktop">
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/about">About</NavLink>
+          </li>
+          <li>
+            <NavLink to="/services">Services</NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact">Contact</NavLink>
+          </li>
+        </ul>
+
+        {/* Hamburger button */}
         <button
           className={`navbar-toggle ${menuOpen ? "open" : ""}`}
-          onClick={toggleMenu}
+          onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
           <span></span>
           <span></span>
           <span></span>
         </button>
+      </div>
 
-        <ul className={`navbar-menu ${menuOpen ? "open" : ""}`}>
+      {/* Mobile overlay */}
+      <div
+        className={`mobile-overlay ${menuOpen ? "open" : ""}`}
+        onClick={closeMenu}
+      />
+      <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+        <ul className="mobile-menu-links">
           <li>
-            <NavLink to="/" onClick={() => setMenuOpen(false)}>
+            <NavLink to="/" onClick={closeMenu}>
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to="/about" onClick={() => setMenuOpen(false)}>
+            <NavLink to="/about" onClick={closeMenu}>
               About
             </NavLink>
           </li>
           <li>
-            <NavLink to="/services" onClick={() => setMenuOpen(false)}>
+            <NavLink to="/services" onClick={closeMenu}>
               Services
             </NavLink>
           </li>
         </ul>
-
-        <div className="navbar-cta">
-          <Link to="/contact" className="btn btn-primary">
-            Contact →
-          </Link>
+        <div className="mobile-menu-footer">
+          <NavLink
+            to="/contact"
+            className="mobile-contact-link"
+            onClick={closeMenu}
+          >
+            Contact
+          </NavLink>
         </div>
       </div>
     </nav>
