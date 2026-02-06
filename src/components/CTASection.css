@@ -1,0 +1,106 @@
+.cta-section {
+  padding: var(--space-24) 0;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #e5a512 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="2" height="2" fill="%23000" opacity="0.05"/></svg>')
+    repeat;
+  pointer-events: none;
+}
+
+.cta-container {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-title {
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-dark);
+  margin-bottom: var(--space-6);
+}
+
+.cta-description {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-dark);
+  opacity: 0.9;
+  margin-bottom: var(--space-10);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn-primary {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding: var(--space-5) var(--space-10);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cta-btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  background-color: var(--color-secondary);
+}
+
+.cta-btn-secondary {
+  background-color: transparent;
+  color: var(--color-dark);
+  border: 2px solid var(--color-dark);
+  padding: var(--space-5) var(--space-10);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-base);
+}
+
+.cta-btn-secondary:hover {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  transform: translateY(-4px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cta-title {
+    font-size: var(--text-4xl);
+  }
+
+  .cta-description {
+    font-size: var(--text-lg);
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .cta-btn-primary,
+  .cta-btn-secondary {
+    width: 100%;
+    max-width: 300px;
+  }
+}

@@ -1,0 +1,134 @@
+.about-preview {
+  padding-top: 8rem;
+  padding-bottom: var(--space-20);
+  background-color: var(--color-white);
+}
+
+.about-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-8);
+  margin-bottom: var(--space-16);
+  align-items: center;
+}
+
+.about-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.about-label {
+  color: var(--color-primary);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-sm);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.about-heading {
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-text-dark);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.about-image-container {
+  position: relative;
+}
+
+.about-image {
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--shadow-xl);
+}
+
+.about-description {
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--color-text-gray);
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8);
+}
+
+.stat-card {
+  background-color: var(--color-light);
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  transition: all var(--transition-base);
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.stat-icon {
+  font-size: var(--text-4xl);
+  margin-bottom: var(--space-3);
+}
+
+.stat-number {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: var(--space-2);
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  font-weight: var(--font-semibold);
+  color: var(--color-text-dark);
+  margin-bottom: var(--space-2);
+}
+
+.stat-description {
+  font-size: 0.8125rem;
+  color: var(--color-text-gray);
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .about-header {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+
+  .about-image {
+    height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-heading {
+    font-size: var(--text-2xl);
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .about-image {
+    height: 350px;
+  }
+}
